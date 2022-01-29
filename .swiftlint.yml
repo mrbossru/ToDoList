@@ -1,0 +1,7 @@
+excluded:
+    - ToDoList/AppDelegate.swift
+    - ToDoList/SceneDelegate.swift
+    - Pods
+    - ToDoListTests
+    - ToDoListUITests
+warning_threshold: 1
