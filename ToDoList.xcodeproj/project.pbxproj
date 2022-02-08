@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		507B629A27B17BEB00952420 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507B629927B17BEB00952420 /* TaskModel.swift */; };
 		508A9B2B27A57DA7001F280D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A9B2A27A57DA7001F280D /* AppDelegate.swift */; };
 		508A9B2D27A57DA7001F280D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A9B2C27A57DA7001F280D /* SceneDelegate.swift */; };
 		508A9B2F27A57DA7001F280D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A9B2E27A57DA7001F280D /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		32F17F5124A25FFAEE8D0E2F /* Pods-ToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.release.xcconfig"; path = "Target Support Files/Pods-ToDoList/Pods-ToDoList.release.xcconfig"; sourceTree = "<group>"; };
+		507B629927B17BEB00952420 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		508A9B2727A57DA7001F280D /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		508A9B2A27A57DA7001F280D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		508A9B2C27A57DA7001F280D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			children = (
 				508A9B7127A5A0CC001F280D /* ToDoListModelProtocol.swift */,
 				508A9B7327A5A0D6001F280D /* ToDoListModel.swift */,
+				507B629927B17BEB00952420 /* TaskModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				508A9B6627A59FC1001F280D /* AddToDoItemViewController.swift in Sources */,
 				508A9B2D27A57DA7001F280D /* SceneDelegate.swift in Sources */,
 				508A9B6E27A5A08F001F280D /* AddToDoItemPresenter.swift in Sources */,
+				507B629A27B17BEB00952420 /* TaskModel.swift in Sources */,
 				508A9B7E27A5B6B6001F280D /* ToDoItemPresenterProtocol.swift in Sources */,
 				508A9B7027A5A0A0001F280D /* AddToDoItemPresenterProtocol.swift in Sources */,
 				508A9B7227A5A0CC001F280D /* ToDoListModelProtocol.swift in Sources */,

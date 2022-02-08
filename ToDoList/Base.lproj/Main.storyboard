@@ -35,7 +35,7 @@
                                 <buttonConfiguration key="configuration" style="gray" title="Добавить дело"/>
                             </button>
                             <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="nar-qH-4DS">
-                                <rect key="frame" x="277" y="59" width="140" height="31"/>
+                                <rect key="frame" x="277" y="59" width="143" height="31"/>
                                 <locale key="locale" localeIdentifier="ru"/>
                             </datePicker>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="doa-kh-Pa3">

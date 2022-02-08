@@ -6,14 +6,18 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        let data = try! Realm().objects(TaskModel.self).filter("date_start < %@", Date().timeIntervalSince1970)[0].toJSON()
+        print(data)
+
+
         // Do any additional setup after loading the view.
     }
-
-
 }
 

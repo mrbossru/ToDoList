@@ -5,6 +5,7 @@ target 'ToDoList' do
   use_frameworks!
  
   pod 'RealmSwift'
+  pod 'SwiftyJSON'
 
   target 'ToDoListTests' do
     inherit! :search_paths
