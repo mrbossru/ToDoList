@@ -19,8 +19,10 @@ class ToDoListTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let presenter = ToDoList.ToDoItemPresenter(view: nil)
+        XCTAssertEqual(presenter.saveTask(id: 0, dateStart: 10000, dateFinish: 9000, name: "test", taskDescription: "test"), false)
+        XCTAssertEqual(presenter.saveTask(id: 0, dateStart: 10000, dateFinish: 19000, name: "", taskDescription: "test"), false)
+        XCTAssertEqual(presenter.saveTask(id: 0, dateStart: 10000, dateFinish: 19000, name: "test", taskDescription: ""), false)
     }
 
     func testPerformanceExample() throws {
@@ -29,5 +31,4 @@ class ToDoListTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

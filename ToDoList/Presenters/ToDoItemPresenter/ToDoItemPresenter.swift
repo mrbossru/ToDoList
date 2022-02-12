@@ -17,7 +17,7 @@ class ToDoItemPresenter: ToDoItemPresenterProtocol {
 
     // MARK: - Init
 
-    init(view: ToDoItemViewControllerProtocol) {
+    init(view: ToDoItemViewControllerProtocol?) {
         self.view = view
     }
 
