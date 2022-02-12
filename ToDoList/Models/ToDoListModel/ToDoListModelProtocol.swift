@@ -9,8 +9,6 @@ import Foundation
 import SwiftyJSON
 
 protocol ToDoListModelProtocol: AnyObject {
-    func  Write(task: JSON)
-    func Read(id: Int) -> JSON?
-    func Read(dateStart: Double, dateFinish: Double) -> [JSON]
-    func Delete(id: Int)
+    func Read(dateStart: Double, dateFinish: Double) -> JSON?
+    func requestData()
 }

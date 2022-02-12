@@ -8,5 +8,6 @@
 import Foundation
 
 protocol ToDoItemViewControllerProtocol: AnyObject {
-    
+    func setId(id: Int?)
+    func showErrorMsg(msg: String)
 }

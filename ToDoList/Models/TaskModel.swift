@@ -35,7 +35,7 @@ class TaskModel: Object {
         dict["date_start"] = self.date_start as AnyObject
         dict["date_finish"] = self.date_finish as AnyObject
         dict["name"] = self.name as AnyObject
-        dict["taskDescription"] = self.taskDescription as AnyObject
+        dict["description"] = self.taskDescription as AnyObject
         return JSON(dict)
     }
 }

@@ -1,9 +1,3 @@
-//
-//  ToDoListModel.swift
-//  ToDoList
-//
-//  Created by Max on 29.01.2022.
-//
 
 import Foundation
 import RealmSwift
@@ -11,19 +5,34 @@ import UIKit
 import SwiftUI
 import SwiftyJSON
 
-class ToDoListModel: ToDoListModelProtocol {
+class DataModel {
 
     // MARK: - Properties
 
-    let realm = try! Realm()
+    let realm = try! Realm(fileURL: URL(fileURLWithPath: "/Users/max/Desktop/TestRealm.realm"))
+    static var model: DataModel?
+    public var reloadData: (() -> Void)?
+    // MARK: - Metods
 
-    // MARK: - ToDoListModelProtocol
+    init() {
+    }
+
+    public static func GetModel() -> DataModel {
+        if let _model = model {
+            return _model
+        }
+        else {
+            model = DataModel()
+            return model!
+        }
+    }
 
     public func  Write(task: JSON){
         let newTask = TaskModel(taskJson: task)
         try! realm.write { () -> Void in
             realm.add(newTask, update: Realm.UpdatePolicy.modified)
         }
+        reloadData?()
     }
     
     public func Read(id: Int) -> JSON? {
@@ -34,8 +43,8 @@ class ToDoListModel: ToDoListModelProtocol {
         return nil
     }
 
-    public func Read(dateStart: Double, dateFinish: Double) -> [JSON] {
-        let elements = realm.objects(TaskModel.self).filter("date_start >= %@", dateStart).filter("date_finish < %@", dateFinish)
+    public func Read(dateStart: Double, dateFinish: Double) -> [JSON]? {
+        let elements = realm.objects(TaskModel.self).filter("date_start < %@", dateFinish).filter("date_finish > %@", dateStart)
         return elements.compactMap{$0.toJSON()}
     }
 
@@ -43,5 +52,6 @@ class ToDoListModel: ToDoListModelProtocol {
         try! realm.write({
             realm.delete(realm.objects(TaskModel.self).filter("id = %@", id))
         })
+        reloadData?()
     }
 }
