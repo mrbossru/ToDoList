@@ -11,7 +11,6 @@
 		507B629A27B17BEB00952420 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507B629927B17BEB00952420 /* TaskModel.swift */; };
 		508A9B2B27A57DA7001F280D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A9B2A27A57DA7001F280D /* AppDelegate.swift */; };
 		508A9B2D27A57DA7001F280D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A9B2C27A57DA7001F280D /* SceneDelegate.swift */; };
-		508A9B2F27A57DA7001F280D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A9B2E27A57DA7001F280D /* ViewController.swift */; };
 		508A9B3227A57DA7001F280D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508A9B3027A57DA7001F280D /* Main.storyboard */; };
 		508A9B3427A57DA8001F280D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 508A9B3327A57DA8001F280D /* Assets.xcassets */; };
 		508A9B3727A57DA8001F280D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 508A9B3527A57DA8001F280D /* LaunchScreen.storyboard */; };
@@ -60,7 +59,6 @@
 		508A9B2727A57DA7001F280D /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		508A9B2A27A57DA7001F280D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		508A9B2C27A57DA7001F280D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		508A9B2E27A57DA7001F280D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		508A9B3127A57DA7001F280D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		508A9B3327A57DA8001F280D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		508A9B3627A57DA8001F280D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 				508A9B5A27A59EA6001F280D /* Views */,
 				508A9B2A27A57DA7001F280D /* AppDelegate.swift */,
 				508A9B2C27A57DA7001F280D /* SceneDelegate.swift */,
-				508A9B2E27A57DA7001F280D /* ViewController.swift */,
 				508A9B3027A57DA7001F280D /* Main.storyboard */,
 				508A9B3327A57DA8001F280D /* Assets.xcassets */,
 				508A9B3527A57DA8001F280D /* LaunchScreen.storyboard */,
@@ -304,6 +301,7 @@
 				508A9B2427A57DA7001F280D /* Frameworks */,
 				508A9B2527A57DA7001F280D /* Resources */,
 				F5579FA50E348E2EF418382D /* [CP] Embed Pods Frameworks */,
+				507B29BF27B8012600E7DAD5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -485,6 +483,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ToDoList-ToDoListUITests/Pods-ToDoList-ToDoListUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		507B29BF27B8012600E7DAD5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
+		};
 		87EDF62C854B817819080EA3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -535,7 +550,6 @@
 				50EF338327B5973B00F9E47F /* ToDoListModel.swift in Sources */,
 				508A9B7727A5B667001F280D /* ToDoItemViewController.swift in Sources */,
 				50EF338527B5977100F9E47F /* ToDoItemModel.swift in Sources */,
-				508A9B2F27A57DA7001F280D /* ViewController.swift in Sources */,
 				508A9B6C27A5A083001F280D /* ToDoListPresenterProtocol.swift in Sources */,
 				508A9B2B27A57DA7001F280D /* AppDelegate.swift in Sources */,
 				508A9B5E27A59F4A001F280D /* ToDoListViewControllerProtocol.swift in Sources */,

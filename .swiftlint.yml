@@ -4,4 +4,7 @@ excluded:
     - Pods
     - ToDoListTests
     - ToDoListUITests
+    - ToDoList/Models/DataModel.swift
+disabled_rules:
+    - large_tuple
 warning_threshold: 1

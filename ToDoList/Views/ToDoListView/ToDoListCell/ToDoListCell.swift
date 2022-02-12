@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 final class ToDoListCell: UITableViewCell {
 
     // MARK: - Properties

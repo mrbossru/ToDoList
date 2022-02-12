@@ -47,7 +47,10 @@ class ToDoListViewController: UIViewController, UITableViewDataSource, ToDoListV
         else {
             return UITableViewCell()
         }
-        cell.time.text = (indexPath.row<10 ? "0" : "") + String(indexPath.row) + ":00-" + ((indexPath.row + 1)<10 ? "0" : "") + String(indexPath.row + 1) + ":00"
+        cell.time.text = (indexPath.row<10 ? "0" : "") +
+                        String(indexPath.row) + ":00-" +
+                        ((indexPath.row + 1)<10 ? "0" : "") +
+                        String(indexPath.row + 1) + ":00"
         cell.dateStart = presenter.getDate(date: toDoDate.date, hour: indexPath.row)
         cell.dateFinish = presenter.getDate(date: toDoDate.date, hour: indexPath.row + 1)
         let task = presenter.getTask(dateStart: cell.dateStart, dateFinish: cell.dateFinish)
@@ -76,10 +79,9 @@ class ToDoListViewController: UIViewController, UITableViewDataSource, ToDoListV
     }
 
     func showView(taskId: Int?) {
-        
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "ToDoItemViewController")
-        if let viewController = nextViewController as? ToDoItemViewControllerProtocol{
+        if let viewController = nextViewController as? ToDoItemViewControllerProtocol {
             viewController.setId(id: taskId)
         }
         self.show(nextViewController, sender: self)

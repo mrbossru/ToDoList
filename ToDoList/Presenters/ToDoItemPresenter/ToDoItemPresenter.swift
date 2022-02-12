@@ -24,7 +24,7 @@ class ToDoItemPresenter: ToDoItemPresenterProtocol {
     // MARK: - ToDoItemPresenterProtocol
 
     func getTask(id: Int) -> (Int, Double, Double, String, String)? {
-        if let taskJson = model.Read(id: id) {
+        if let taskJson = model.read(id: id) {
             return (taskJson["id"].intValue, taskJson["date_start"].doubleValue,
                     taskJson["date_finish"].doubleValue,
                     taskJson["name"].stringValue,
@@ -34,11 +34,11 @@ class ToDoItemPresenter: ToDoItemPresenterProtocol {
     }
 
     func deleteTask(id: Int) {
-        model.Delete(id: id)
+        model.delete(id: id)
     }
 
-    func saveTask(id: Int?, date_start: Double, date_finish: Double, name: String, taskDescription: String) -> Bool {
-        if (date_start >= date_finish) {
+    func saveTask(id: Int?, dateStart: Double, dateFinish: Double, name: String, taskDescription: String) -> Bool {
+        if dateStart >= dateFinish {
             view?.showErrorMsg(msg: "Начало задачи не может быть позже ее окончания")
             return false
         }
@@ -50,7 +50,10 @@ class ToDoItemPresenter: ToDoItemPresenterProtocol {
             view?.showErrorMsg(msg: "Введите описание задачи")
             return false
         }
-        if (model.Read(dateStart: getDate(date: date_start, isStart: true), dateFinish: getDate(date: date_finish, isStart: false)) != nil) {
+        if model.read(dateStart: getDate(date: dateStart,
+                                         isStart: true),
+                     dateFinish: getDate(date: dateFinish,
+                                         isStart: false)) != nil {
             view?.showErrorMsg(msg: "Данное время занято")
             return false
         }
@@ -58,15 +61,14 @@ class ToDoItemPresenter: ToDoItemPresenterProtocol {
         var dict = [String: AnyObject]()
         if id == nil {
             dict["id"] = Int(Date().timeIntervalSince1970)as AnyObject
-        }
-        else {
+        } else {
             dict["id"] = id as AnyObject
         }
-        dict["date_start"] = date_start as AnyObject
-        dict["date_finish"] = date_finish as AnyObject
+        dict["date_start"] = dateStart as AnyObject
+        dict["date_finish"] = dateFinish as AnyObject
         dict["name"] = name as AnyObject
         dict["description"] = taskDescription as AnyObject
-        model.Write(task: JSON(dict))
+        model.write(task: JSON(dict))
         return true
     }
 
@@ -75,9 +77,9 @@ class ToDoItemPresenter: ToDoItemPresenterProtocol {
     }
 
     func getDate(date: Double, isStart: Bool) -> Double {
-        let _date = NSDate(timeIntervalSince1970: date)
+        let newDate = NSDate(timeIntervalSince1970: date)
         let calendar = Calendar.current
-        var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: _date as Date)
+        var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: newDate as Date)
         if isStart {
             components.minute = 0
         } else {
@@ -86,6 +88,6 @@ class ToDoItemPresenter: ToDoItemPresenterProtocol {
                 components.hour! += 1
             }
         }
-        return try calendar.date(from: components)!.timeIntervalSince1970
+        return calendar.date(from: components)!.timeIntervalSince1970
     }
 }

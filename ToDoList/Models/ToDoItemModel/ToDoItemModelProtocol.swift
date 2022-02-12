@@ -9,8 +9,8 @@ import Foundation
 import SwiftyJSON
 
 protocol ToDoItemModelProtocol {
-    func Write(task: JSON)
-    func Read(id: Int) -> JSON?
-    func Read(dateStart: Double, dateFinish: Double) -> JSON?
-    func Delete(id: Int)
+    func write(task: JSON)
+    func read(id: Int) -> JSON?
+    func read(dateStart: Double, dateFinish: Double) -> JSON?
+    func delete(id: Int)
 }

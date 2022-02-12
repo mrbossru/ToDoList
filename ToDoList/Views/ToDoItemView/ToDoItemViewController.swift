@@ -25,7 +25,11 @@ class ToDoItemViewController: UIViewController, ToDoItemViewControllerProtocol {
     // MARK: - IBAction
 
     @IBAction func saveTaskButton(_ sender: Any) {
-        if presenter.saveTask(id: id, date_start: startDate.date.timeIntervalSince1970, date_finish: finishedDate.date.timeIntervalSince1970, name: nameTask.text ?? "", taskDescription: descriptionTask.text) {
+        if presenter.saveTask(id: id,
+                              dateStart: startDate.date.timeIntervalSince1970,
+                              dateFinish: finishedDate.date.timeIntervalSince1970,
+                              name: nameTask.text ?? "",
+                              taskDescription: descriptionTask.text) {
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -34,8 +38,10 @@ class ToDoItemViewController: UIViewController, ToDoItemViewControllerProtocol {
     }
 
     @IBAction func deleteTaskButton(_ sender: Any) {
-        if let _id = id {
-            presenter.deleteTask(id: _id)
+        if let id = id {
+            do {
+                try presenter.deleteTask(id: id)
+            } catch {}
         }
         self.dismiss(animated: true, completion: nil)
     }
@@ -55,11 +61,11 @@ class ToDoItemViewController: UIViewController, ToDoItemViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let taskId = id {
-            if let _task = presenter.getTask(id: taskId) {
-                startDate.setDate(NSDate(timeIntervalSince1970: _task.1) as Date, animated: false)
-                finishedDate.setDate(NSDate(timeIntervalSince1970: _task.2) as Date, animated: false)
-                nameTask.text = _task.3
-                descriptionTask.text = _task.4
+            if let task = presenter.getTask(id: taskId) {
+                startDate.setDate(NSDate(timeIntervalSince1970: task.1) as Date, animated: false)
+                finishedDate.setDate(NSDate(timeIntervalSince1970: task.2) as Date, animated: false)
+                nameTask.text = task.3
+                descriptionTask.text = task.4
             }
         }
     }

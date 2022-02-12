@@ -8,11 +8,11 @@
 import Foundation
 import SwiftyJSON
 
-class ToDoItemModel : ToDoItemModelProtocol {
+class ToDoItemModel: ToDoItemModelProtocol {
 
     // MARK: - Properties
 
-    private lazy var model = DataModel.GetModel()
+    private lazy var model = DataModel.getModel()
     unowned var presenter: ToDoItemPresenterProtocol?
 
     // MARK: - Init
@@ -23,20 +23,20 @@ class ToDoItemModel : ToDoItemModelProtocol {
 
     // MARK: - ToDoItemModelProtocol
 
-    func Write(task: JSON) {
-        model.Write(task: task)
+    func write(task: JSON) {
+        model.write(task: task)
     }
 
-    func Read(id: Int) -> JSON? {
-        return model.Read(id: id)
+    func read(id: Int) -> JSON? {
+        return model.read(id: id)
     }
 
-    func Delete(id: Int) {
-        model.Delete(id: id)
+    func delete(id: Int) {
+        model.delete(id: id)
     }
 
-    func Read(dateStart: Double, dateFinish: Double) -> JSON? {
-        if let json = model.Read(dateStart: dateStart, dateFinish: dateFinish) {
+    func read(dateStart: Double, dateFinish: Double) -> JSON? {
+        if let json = model.read(dateStart: dateStart, dateFinish: dateFinish) {
             return json.first
         }
         return nil

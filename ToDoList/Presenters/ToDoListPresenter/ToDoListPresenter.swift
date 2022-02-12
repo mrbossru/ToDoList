@@ -24,7 +24,7 @@ class ToDoListPresenter: ToDoListPresenterProtocol {
     // MARK: - ToDoListPresenterProtocol
 
     func getTask(dateStart: Double, dateFinish: Double) -> (Int, Double, Double, String, String)? {
-        if let taskJson = model.Read(dateStart: dateStart, dateFinish: dateFinish) {
+        if let taskJson = model.read(dateStart: dateStart, dateFinish: dateFinish) {
             return (taskJson["id"].intValue, taskJson["date_start"].doubleValue,
                     taskJson["date_finish"].doubleValue,
                     taskJson["name"].stringValue,
@@ -45,6 +45,6 @@ class ToDoListPresenter: ToDoListPresenterProtocol {
         let calendar = Calendar.current
         var components = Calendar.current.dateComponents([.year, .month, .day, .hour], from: date)
         components.hour = hour
-        return try calendar.date(from: components)!.timeIntervalSince1970
+        return calendar.date(from: components)!.timeIntervalSince1970
     }
 }
